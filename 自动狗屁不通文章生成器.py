@@ -13,6 +13,9 @@ data = readJSON.读JSON文件("data.json")
 xx = "学生会退会"
 
 重复度 = 2
+required_rep = input('Input the amount of junk [2]: ')
+if required_rep.isdigit():
+    重复度 = int(required_rep)
 
 def 洗牌遍历(列表):
     global 重复度
