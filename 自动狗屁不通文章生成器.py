@@ -13,11 +13,16 @@ synonyms = data['synonyms']
 synonyms_keys = synonyms.keys()
 
 punctuations = '＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～｟｠｢｣､\u3000、〃〈〉《》「」『』【】〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏﹑﹔·！？｡。'
+#xx = "学生会退会"
 
-xx = "学生会退会"
+print('----------------------')
+print(' Full shit Generator  ')
+print('----------------------')
+print('This script can helps you generate full mark shit on your screen. ')
+print(' ')
 
 重复度 = 2
-required_rep = input('Input the amount of shit [2]: ')
+required_rep = input('Input the amount of shit [2 by default]: ')
 if required_rep.isdigit():
     重复度 = int(required_rep)
 
@@ -46,12 +51,14 @@ def 另起一段():
     return xx
 
 if __name__ == "__main__":
-    xx = input("请输入文章主题:")
+    xx = input("请输入文章主题 [学生会退会 by default]：")
     
-    # Users can use modified version, or the original
-    modified = input('Are you willing to generate full shit instead of bull shit? (Y)es/(N)o. No by default ').lower()
+    xx = ("学生会退会" if xx == '' else xx.replace(' ', ''))    # Replace spaces
+    
+    # Users can generate full mark shit, or the original bull shit
+    modified = input('Are you willing to generate full shit instead of bull shit? (Y)es/(N)o [No by default] ').lower()
     if modified == 'y' or modified == 'yes':
-        modified = input('How much shit would you want to eat (3 by default)? [0-9] ')
+        modified = input('How much shit would you want to eat (0-9)? [3 by default] ')
         if modified.isdigit():
             modified = int(modified)
             if modified > 9:
@@ -77,7 +84,7 @@ if __name__ == "__main__":
         tmp = tmp.split('|')
         # Keep the original
 
-        shit = ''
+        shit = '    |'
         if modified:
             junk_length = len(tmp)
             # Ignore punctuations and uncovered words
@@ -110,3 +117,4 @@ if __name__ == "__main__":
             shit += word
         shit = shit.replace("x", xx)
         print(shit)
+        os.system('PAUSE')
