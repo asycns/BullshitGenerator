@@ -71,50 +71,55 @@ if __name__ == "__main__":
     else:
         modified = 0
 
+    tmp = '    |'
     for x in xx:
-        tmp = str()
         while ( len(tmp) < 6000 ) :
             分支 = random.randint(0,100)
             if 分支 < 5:
+                tmp = tmp[:-1]
                 tmp += 另起一段()
             elif 分支 < 20 :
                 tmp += 来点名人名言()
             else:
                 tmp += next(下一句废话)
-        tmp = tmp.split('|')
         # Keep the original
 
-        shit = '    |'
-        if modified:
-            junk_length = len(tmp)
-            # Ignore punctuations and uncovered words
-            ignore_list = [0] * junk_length
-            # Count
-            shit_count = 0
-            for current_shit in range(len(tmp)):
-                if tmp[current_shit] in punctuations or tmp[current_shit] not in synonyms_keys:
-                    ignore_list[current_shit] = 1
-                else:
-                    shit_count += 1
+    tmp = tmp.split('|')
+    tmp[-1] = '。'      # Forcely end the paragraph
+    shit = ''
+    if modified:
+        junk_length = len(tmp)
+        # Ignore punctuations and uncovered words
+        ignore_list = [0] * junk_length
+        # Count
+        shit_count = 0
+        for current_shit in range(len(tmp)):
+            if tmp[current_shit] in punctuations or tmp[current_shit] not in synonyms_keys:
+                ignore_list[current_shit] = 1
+            else:
+                shit_count += 1
 
-            full_shit_length = round(shit_count * modified / 10)
-            # Pollute ideal number of shit
-            for count_shit in range(full_shit_length):
-                while True:     # Trail exit when pollute well
-                    pollute_pos = random.randint(0, junk_length - 1)
-                    # Check it is need to ignore
-                    if ignore_list[pollute_pos]:
-                        continue
-                    # Gather a full mark shit
-                    current_shit = tmp[pollute_pos]
-                    full_mark_pool = synonyms[current_shit]
-                    tmp[pollute_pos] = random.choice(full_mark_pool)
-                    ignore_list[pollute_pos] = 1
-                    break
-                # Loop until enough shit be full marked
+        full_shit_length = round(shit_count * modified / 10)
+        # Pollute ideal number of shit
+        for count_shit in range(full_shit_length):
+            while True:     # Trail exit when pollute well
+                pollute_pos = random.randint(0, junk_length - 1)
+                # Check it is need to ignore
+                if ignore_list[pollute_pos]:
+                    continue
+                # Gather a full mark shit
+                current_shit = tmp[pollute_pos]
+                full_mark_pool = synonyms[current_shit]
+                tmp[pollute_pos] = random.choice(full_mark_pool)
+                ignore_list[pollute_pos] = 1
+                break
+            # Loop until enough shit be full marked
 
-        for word in tmp:
-            shit += word
-        shit = shit.replace("x", xx)
-        print(shit)
-        os.system('PAUSE')
+    for word in tmp:
+        shit += word
+    shit = shit.replace("x", xx)
+    print(' ')
+    print(xx)
+    print('----------------------')
+    print(shit)
+    os.system('PAUSE')
