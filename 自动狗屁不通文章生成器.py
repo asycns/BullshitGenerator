@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import os, re
+from os import system
 import random,readJSON
 
 data = readJSON.读JSON文件("data.json")
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     # Users can generate full mark shit, or the original bull shit
     modified = input('Are you willing to generate full shit instead of bull shit? (Y)es/(N)o [No by default] ').lower()
     if modified == 'y' or modified == 'yes':
-        modified = input('How much shit would you want to eat (0-9)? [3 by default] ')
+        modified = input('How much shit would you want to eat (0-9)? [2 by default] ')
         if modified.isdigit():
             modified = int(modified)
             if modified > 9:
@@ -122,4 +122,4 @@ if __name__ == "__main__":
     print(xx)
     print('----------------------')
     print(shit)
-    os.system('PAUSE')
+    system('PAUSE')
