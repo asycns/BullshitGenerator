@@ -22,7 +22,7 @@ print('This script can helps you generate full mark shit on your screen. ')
 print(' ')
 
 重复度 = 2
-required_rep = input('Input the amount of shit [2 by default]: ')
+required_rep = input('Input the degree of repeat of your shit [2 by default]: ')
 if required_rep.isdigit():
     重复度 = int(required_rep)
 
