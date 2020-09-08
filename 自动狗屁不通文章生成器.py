@@ -93,7 +93,7 @@ if __name__ == "__main__":
         ignore_list = [0] * junk_length
         # Count
         shit_count = 0
-        for current_shit in range(len(tmp)):
+        for current_shit in range(junk_length):
             if tmp[current_shit] in punctuations or tmp[current_shit] not in synonyms_keys:
                 ignore_list[current_shit] = 1
             else:
